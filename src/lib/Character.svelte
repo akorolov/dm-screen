@@ -1,7 +1,6 @@
 <script lang="ts">
     import { InputChip } from "@skeletonlabs/skeleton";
     import { createEventDispatcher } from 'svelte';
-    import { Avatar } from '@skeletonlabs/skeleton';
 
     const dispatch = createEventDispatcher();
 
@@ -26,7 +25,7 @@ function handleKeydown(e: KeyboardEvent) {
 
 
 <div class="card m-4">
-    <header class="card-header h4 justify-around flex"> 
+    <header class="card-header h4 justify-between flex"> 
         <input class="input w-12 rounded p-1" title="Initiative" bind:value={initiative} type="number" placeholder=9 />
         <a on:click={() => edit_name = true}>
             {#if edit_name}
@@ -40,7 +39,7 @@ function handleKeydown(e: KeyboardEvent) {
             <div class="input-group-shim p-0"><span class="material-symbols-outlined">
                 favorite
                 </span></div>
-            <input class="input-group-shim" type="number" placeholder=0 />
+            <input class="input-group-shim" type="number" bind:value={health} placeholder=0 />
             </div>
 
         <button class="btn-icon rounded variant-soft" on:click={() => dispatch("delete")}><span class="material-symbols-outlined">
