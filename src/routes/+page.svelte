@@ -51,7 +51,7 @@ function SortCharacters() {
 	{/key}
 </div>
 <div class="flex flex-col items-center">
-	<div class="mx-4 px-7 flex flex-row justify-between w-full max-w-3xl">
+	<div class="mx-4 px-4 flex flex-row justify-between w-full max-w-3xl">
 		<button class="btn btn-icon variant-filled rounded" on:click={SortCharacters} title="Sort by initiative"><span class="material-symbols-outlined">
 			shuffle
 			</span></button>

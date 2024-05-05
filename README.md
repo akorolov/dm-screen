@@ -1,38 +1,13 @@
-# create-svelte
+# Initiative Tracker
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This is the source code for an initiative tracker I build. 
 
-## Creating a project
+Access the tracker at dm.akorl.xyz
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Instructions
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The left text box is for initiative. Use the button at the bottom to re-order the characters based on their initiative. Add characters using the Add Character button. 
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+For health/damage tracking, you can type 25+5 and then hit enter or 25-5 and then hit enter to do calculations (like a calculator). Use this to keep track of health during combat. You can add conditions underneath with free text, whatever you want to call it. 
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Remove a character from the list by clicking the skull icon. 
