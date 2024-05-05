@@ -41,9 +41,9 @@ function calculateHealth(e: KeyboardEvent) {
 </script>
 
 
-<div class="card m-2 w-full max-w-3xl">
+<div class="card m-2 w-full max-w-3xl rounded">
     <header class="card-header h4 justify-between flex"> 
-        <input class="input w-12 rounded p-1 border" title="Initiative" bind:value={initiative} type="number" placeholder=9 />
+        <input class="input w-12 rounded variant-form-material" title="Initiative" bind:value={initiative} type="tel" placeholder=9 />
         <a on:click={() => edit_name = true} title="Click to rename character">
             {#if edit_name}
                 <input class="input" type="text" bind:value={name} on:keydown={handleKeydown} />
