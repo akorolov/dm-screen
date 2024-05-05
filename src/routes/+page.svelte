@@ -50,11 +50,12 @@ function SortCharacters() {
 	{/each}
 	{/key}
 </div>
-
-	<div class="mx-4 px-7 flex flex-row justify-between">
+<div class="flex flex-col items-center">
+	<div class="mx-4 px-7 flex flex-row justify-between w-full max-w-3xl">
 		<button class="btn btn-icon variant-filled rounded" on:click={SortCharacters} title="Sort by initiative"><span class="material-symbols-outlined">
 			shuffle
 			</span></button>
 		<button class="btn variant-ghost" on:click={AddCharacter}>Add Character</button>
 		<div class="w-4"></div>
 	</div>
+</div>
