@@ -8,6 +8,7 @@
 export let name = "Character Name"
 export let initiative = 0
 export let health = "0"
+export let char_type: string | number | undefined = "player"
 
 export let conditions: string[] = []
 
@@ -52,12 +53,14 @@ function calculateHealth(e: KeyboardEvent) {
             {/if}
         </a>
 
+        {#if (char_type == "monster")}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] w-40 border" title="Use + or - to add or subtract numbers, and then hit enter. Example: 20+5">
             <div class="input-group-shim p-0"><span class="material-symbols-outlined">
                 favorite
                 </span></div>
             <input class="input-group-shim" type="text" on:keydown={calculateHealth} bind:value={health} placeholder=0 />
             </div>
+        {/if}
 
         <button class="btn-icon rounded variant-soft" title="Remove character" on:click={() => dispatch("delete")}><span class="material-symbols-outlined">
             skull

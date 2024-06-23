@@ -11,16 +11,36 @@ let sorted_toggle = true
 const modal: ModalSettings = {
 	type: 'prompt',
 	// Data
-	title: 'Add Character',
+	title: 'Add Player',
+	body: 'Write the player character name below',
 	// Populates the input value and attributes
 	value: '',
 	valueAttr: { type: 'text', minlength: 3, maxlength: 100, required: true },
-	// Returns the updated response value
-	response: (r: string) => $character_list = [...$character_list, [r,0]],
+	// Returns the updated response value, if there is one (since canceling returns false)
+	response: (r: string) => r ? $character_list = [...$character_list, [r,0,"player"]] : null,
 };
+
+const monster_modal: ModalSettings = {
+	type: 'component',
+	component: 'modalMonster'
+}
 
 function AddCharacter() {
 	modalStore.trigger(modal);
+}
+
+function RemoveMonsters() {
+	let new_list: any[] = []
+	$character_list.forEach(element => {
+		if (element[2] !== "monster") {
+			new_list = [...new_list, element]
+		}
+	})
+	$character_list = new_list
+}
+
+function AddMonsters() {
+	modalStore.trigger(monster_modal)
 }
 
 function DeleteCharacter(character: string) {
@@ -45,7 +65,7 @@ function SortCharacters() {
 	{#key sorted_toggle}
 	{#each $character_list as character}
 
-		<Character bind:name={character[0]} bind:initiative={character[1]} on:delete={() => DeleteCharacter(character[0])}/>
+		<Character bind:name={character[0]} bind:char_type={character[2]} bind:initiative={character[1]} on:delete={() => DeleteCharacter(character[0])}/>
 
 	{/each}
 	{/key}
@@ -56,6 +76,8 @@ function SortCharacters() {
 			shuffle
 			</span></button>
 		<button class="btn variant-ghost" on:click={AddCharacter}>Add Character</button>
+		<button class="btn variant-ghost" on:click={AddMonsters}>Add Monsters</button>
+		<button class="btn variant-ghost" on:click={RemoveMonsters}>Remove All Monsters</button>
 		<div class="w-4"></div>
 	</div>
 </div>
